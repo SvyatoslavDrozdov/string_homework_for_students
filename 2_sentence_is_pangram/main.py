@@ -9,4 +9,10 @@ pytest ./2_sentence_is_pangram/test.py
 
 
 def is_sentence_is_pangram(sentence: str) -> bool:
-    """Пишите ваш код здесь."""
+    english = "qwertyuiopasdfghjklzxcvbnm"
+    sentence = sentence.lower()
+    letters_number = 0
+    for letters in english:
+        if letters in sentence:
+            letters_number += 1
+    return letters_number == len(english)
