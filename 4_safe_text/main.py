@@ -45,11 +45,9 @@ def get_wrong_article() -> str:
 
 
 def recover_article() -> str:
-    wrong_article = get_wrong_article()[::-1]
-    wrong_article = wrong_article.replace("!", "").lower().replace("woof-woof", "cat").split(".")
-    correct_article = []
-    [correct_article.append(wrong_article[i].capitalize()) for i in range(0, len(wrong_article))]
-    correct_article = correct_article[1::][::-1]
-    correct_article[0] = correct_article[0] + "\n"
-    correct_article = ''.join(correct_article).replace("\n", ".\n")
+    wrong_article = get_wrong_article().lower().split(SPLIT_SYMBOL)
+    for i in range(0, len(wrong_article) - 1):
+        wrong_article[i] = wrong_article[i][:len(wrong_article[i]) // 2]
+        wrong_article[i] = wrong_article[i][::-1].replace("woof-woof", "cat").capitalize() + "."
+    correct_article = '\n'.join(wrong_article)
     return correct_article
