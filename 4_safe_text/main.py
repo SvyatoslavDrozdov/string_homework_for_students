@@ -49,5 +49,5 @@ def recover_article() -> str:
     for i in range(0, len(wrong_article) - 1):
         wrong_article[i] = wrong_article[i][:len(wrong_article[i]) // 2]
         wrong_article[i] = wrong_article[i][::-1].replace("woof-woof", "cat").capitalize()
-    correct_article = f'{SPLIT_SYMBOL}'.join(wrong_article)
+    correct_article = SPLIT_SYMBOL.join(wrong_article)
     return correct_article
